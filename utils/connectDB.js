@@ -20,7 +20,7 @@ export async function mysqlConnect() {
 
     };
 
-    console.log('result of connecting to DB:>>>',result)
+    // console.log('result of connecting to DB:>>>',result)
 
 
     return result;

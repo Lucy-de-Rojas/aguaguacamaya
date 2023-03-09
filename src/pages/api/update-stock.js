@@ -7,6 +7,14 @@ import { mysqlConnect } from 'utils/connectDB';
 export default async function handler(req, res) {
 
 
+
+
+    let data = req.body;
+    console.log('data from the front to add to stock:>>>> ',data)
+
+
+
+
     // connect to DB:
     const mysqlDetails = await mysqlConnect();
     const connection = await mysql.createConnection(mysqlDetails);
@@ -14,7 +22,12 @@ export default async function handler(req, res) {
     if(connection) {console.log('successfully connected to DB!!!')}
     const values = [];
 
-    const query = 'select * from stock';
+
+
+    // 🟥
+    const query = `insert into stock (name, date, quantity, volume, note, sparkling,  price) values ("${data.name}", "${data.date}","${data.quantity}","${data.volume}","${data.note}", "${data.sparkling}", "${data.price}" )`;
+
+
     const [results] = await connection.execute(query, values);
 
 
@@ -22,7 +35,7 @@ export default async function handler(req, res) {
 
 
 
-    res.json(results);
+    // res.json(results);
 
 
 

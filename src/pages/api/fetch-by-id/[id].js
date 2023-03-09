@@ -7,6 +7,21 @@ import { mysqlConnect } from 'utils/connectDB';
 export default async function handler(req, res) {
 
 
+    let id = req.query.id;
+
+
+    console.log('selected id: >>>>>', id)
+
+
+
+
+
+
+
+
+
+
+
     // connect to DB:
     const mysqlDetails = await mysqlConnect();
     const connection = await mysql.createConnection(mysqlDetails);
@@ -14,15 +29,24 @@ export default async function handler(req, res) {
     if(connection) {console.log('successfully connected to DB!!!')}
     const values = [];
 
-    const query = 'select * from stock';
+
+
+    // 🟥
+    const query = `select * from stock where id=${id}`;
+
+
     const [results] = await connection.execute(query, values);
 
-
-    // console.log('DB fetch outcome >>>>>>',results)
+    console.log('results by ID: >>>>>', results)
 
 
 
     res.json(results);
+
+
+
+
+
 
 
 
