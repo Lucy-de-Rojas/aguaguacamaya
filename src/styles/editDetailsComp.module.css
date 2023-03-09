@@ -1,0 +1,13 @@
+.editDetailsComp {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    bottom: 20px;
+    right: 20px;
+
+    text-align: center;
+    background-color: rgb(174, 239, 174);
+
+    transition: all 2s ease-in-out;
+    transform: translateX(150%);
+}
