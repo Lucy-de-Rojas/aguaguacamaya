@@ -19,7 +19,7 @@ export default async function handler(req, res) {
     const mysqlDetails = await mysqlConnect();
     const connection = await mysql.createConnection(mysqlDetails);
 
-    if(connection) {console.log('successfully connected to DB!!!')}
+    if(connection) {console.log('successfully connected to DB, adding to stock!!!')}
     const values = [];
 
 

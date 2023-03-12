@@ -1,7 +1,16 @@
+import {useRouter} from 'next/router';
+
+
 import styles from '../src/styles/addProductComp.module.css';
 
 
+
+
+
+
+
 export default function AddProductComp() {
+    const router = useRouter();
 
 
     function hideForm() {
@@ -21,8 +30,7 @@ export default function AddProductComp() {
     // add to stock func:
     async function submitAddProduct(event) {
 
-        event.preventDefault();
-        hideForm();
+        // event.preventDefault();
 
 
 
@@ -52,7 +60,7 @@ export default function AddProductComp() {
 
 
 
-// data:
+        // data:
         let data = {
             name: name,
             volume: volume,
@@ -64,8 +72,11 @@ export default function AddProductComp() {
         }
 
 
+        console.log('data from ADD PRODUCT:>>>>>', data)
 
-    // send data to /api/add-to-stock:
+
+
+        // send data to /api/add-to-stock:
     let response = await fetch('/api/add-to-stock', {
         method: 'POST',
         mode:'cors',
@@ -82,8 +93,9 @@ export default function AddProductComp() {
 
 
 
-        console.log('data from the add product form:>>>> ', data)
-    }
+    console.log('data from the add product form:>>>> ', data)
+    hideForm();
+}
 
 
 
