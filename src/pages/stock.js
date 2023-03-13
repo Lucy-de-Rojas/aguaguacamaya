@@ -15,6 +15,7 @@ export default function Stock() {
 
     const [stock, setStock] = useState([]);
     const [editDetailsID, setEditDetailsID] = useState();
+    const [addItemToSalesCornerID, setAddItemToSalesCornerID] = useState();
 
 
 
@@ -33,6 +34,40 @@ export default function Stock() {
 
 
     }
+
+
+
+
+
+
+
+// add item to sales corner:
+function addItemToSalesCorner(event) {
+
+    // get the id:
+    let target = event.target.id;
+    setAddItemToSalesCornerID(target);
+
+
+    // slide out the component:
+    let itemToSalesCorner = document.querySelector('#addItemToSalesCorner');
+    itemToSalesCorner.style.transform = 'translateX(0%)';
+    itemToSalesCorner.style.top = '40px';
+    itemToSalesCorner.style.bottom = '40px';
+    itemToSalesCorner.style.left = '20px';
+    itemToSalesCorner.style.right = '20px';
+
+
+
+
+}
+
+
+
+
+
+
+
 
 
 
@@ -61,7 +96,7 @@ export default function Stock() {
 
 
 
-    return (<Layout header='Stock' id={editDetailsID}>
+    return (<Layout header='Stock' id={editDetailsID} idSalesCorner={addItemToSalesCornerID}>
 
 
 <hr />
@@ -80,7 +115,9 @@ export default function Stock() {
                 Price: {(item.price).toFixed(2)}
 
                 <button id={item.id} onClick={editDetailsFunc}>Edit Details</button>
-                <button id={item.id}>Add to Sales Corner</button>
+
+
+                <button id={item.id} onClick={addItemToSalesCorner}>Add to Sales Corner</button>
 
             </div>);
 

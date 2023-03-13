@@ -1,14 +1,15 @@
 import { addProduct } from "utils/addProduct";
+
 import AddProductComp from "./addProductComp";
 import EditDetailsComp from "./editDetailsComp";
+import AddToSalesCorner from "./add-to-sales-corner";
 
 
 
 
 
 
-
-export default function Layout({children, header, id}) {
+export default function Layout({children, header, id, idSalesCorner}) {
 
 
 
@@ -26,7 +27,9 @@ export default function Layout({children, header, id}) {
 
 <AddProductComp />
 
-<EditDetailsComp id={id}/>
+        <EditDetailsComp id={id}/>
+
+        <AddToSalesCorner id={idSalesCorner} />
 
     </div>);
 };
