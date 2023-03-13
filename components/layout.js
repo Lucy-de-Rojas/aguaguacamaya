@@ -1,3 +1,6 @@
+import Link from "next/link";
+
+
 import { addProduct } from "utils/addProduct";
 
 import AddProductComp from "./addProductComp";
@@ -19,7 +22,9 @@ export default function Layout({children, header, id, idSalesCorner}) {
     return (<div>
         <h1>{header}</h1>
         <button onClick={addProduct}>Add Product</button>
-        <button>Sales Corner</button>
+        <button>
+            <Link href='/sales-corner'>Sales Corner</Link>
+            </button>
         <button>Archive</button>
 
 {children}

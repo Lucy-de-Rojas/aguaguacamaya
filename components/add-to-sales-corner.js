@@ -50,7 +50,7 @@ export default function AddToSalesCorner({id}) {
 
     // sending data to /api:
     async function addToSalesCornerFunc(event) {
-        event.preventDefault();
+        // event.preventDefault();
 
 
         let price = document.querySelector('#priceSalesCorner').value;
