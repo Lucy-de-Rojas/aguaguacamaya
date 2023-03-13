@@ -42,7 +42,7 @@ export default function EditDetailsComp({id}) {
 
     // updating the stock on submit:
     async function updateStock(event) {
-        event.preventDefault();
+        // event.preventDefault();
         console.clear();
 
 
@@ -105,6 +105,7 @@ export default function EditDetailsComp({id}) {
         };
 
 
+        hideForm();
         console.log('data from EDIT form:>>>> ', data);
 
 
@@ -122,7 +123,6 @@ export default function EditDetailsComp({id}) {
 
 
 
-        hideForm();
     }
 
 
@@ -246,17 +246,30 @@ export default function EditDetailsComp({id}) {
 <br /><br /><br />
 
 
-            {/* SUBMIT: */}
+            {/* SAVE on SUBMIT: */}
             <input
                 type='submit'
                 value="Save Changes"
             />
 
-<br /><br />
 
 
     </form>
-        <button onClick={hideForm}>Cancel</button>
+
+
+
+
+
+{/* cancelling button NO SAVING: */}
+<form onSubmit={()=>{
+    hideForm();
+}}>
+    <input type='submit' value='Cancel'/>
+
+</form>
+
+
+
     </div>);
 
 
