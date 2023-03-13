@@ -43,7 +43,83 @@ export default function EditDetailsComp({id}) {
     // updating the stock on submit:
     async function updateStock(event) {
         event.preventDefault();
-        alert('updating stock');
+        console.clear();
+
+
+        // name:
+        let name = document.querySelector('#nameEdit').value ? document.querySelector('#nameEdit').value : dataById.name;
+
+
+
+        // volume:
+        let volume = document.querySelector('#volumeEdit').value ? document.querySelector('#volumeEdit').value : dataById.volume;
+
+
+
+
+
+        // sparkling:
+        let sparkling = document.querySelector('input[name="sparklingEdit"]:checked') ? document.querySelector('input[name="sparklingEdit"]:checked').value : dataById.sparkling;
+
+
+
+        // quantity:
+        let quantity = document.querySelector('#quantityEdit').value ? document.querySelector('#quantityEdit').value : dataById.quantity;
+
+
+
+
+        // price:
+        let price = document.querySelector('#priceEdit').value ? document.querySelector('#priceEdit').value : dataById.price;
+
+
+
+
+        // date:
+        let date = new Date().toISOString().slice(0, 19).replace('T', ' ');
+
+
+
+
+
+        // note:
+        let note = document.querySelector('#noteEdit').value ? document.querySelector('#noteEdit').value : dataById.note;
+
+
+
+
+
+
+
+
+
+        let data = {
+            name: name,
+            volume: volume,
+            sparkling: sparkling,
+            quantity: quantity,
+            price: price,
+            id: id,
+            date:date,
+            note: note,
+        };
+
+
+        console.log('data from EDIT form:>>>> ', data);
+
+
+        let response = await fetch('/api/stock-item-edit-details', {
+            method: 'POST',
+            mode:'cors',
+            credentials: 'same-origin',
+            headers: {
+                "Content-Type":"application/json",
+                        },
+            body: JSON.stringify(data),
+        });
+
+
+
 
 
         hideForm();
@@ -80,7 +156,7 @@ export default function EditDetailsComp({id}) {
         <input
             type='text'
             placeholder="new name"
-            id="name"
+            id="nameEdit"
 
         />
 
@@ -92,7 +168,7 @@ export default function EditDetailsComp({id}) {
             type='number'
             placeholder="new volume"
             step={1}
-            id="volume"
+            id="volumeEdit"
         />
 
 
@@ -103,9 +179,9 @@ export default function EditDetailsComp({id}) {
         <p>Change to sparkling:
             <input
                 type='radio'
-                name="sparkling"
+                name="sparklingEdit"
                 value={1}
-                id="sparkling"
+                id="sparklingEdit"
                 />
                 </p>
 
@@ -113,9 +189,9 @@ export default function EditDetailsComp({id}) {
             <p>Change to still:
             <input
                 type='radio'
-                name='sparkling'
+                name='sparklingEdit'
                 value={0}
-                id="still"
+                id="stillEdit"
                 />
                 </p>
 
@@ -132,7 +208,7 @@ export default function EditDetailsComp({id}) {
             type='number'
             min={0}
             placeholder="new quantity"
-            id="quantity"
+            id="quantityEdit"
         />
 
 
@@ -146,7 +222,7 @@ export default function EditDetailsComp({id}) {
             step={0.01}
             min={0}
             placeholder="new price"
-            id="price"
+            id="priceEdit"
             />
 
 
@@ -155,12 +231,28 @@ export default function EditDetailsComp({id}) {
 
 
 
+
+
+        {/* NOTE: */}
+        <p>Original note: {dataById.note}</p>
+        <input
+                type='text'
+                placeholder='new note'
+                id="noteEdit"
+                maxLength={2000}
+
+                />
+
+<br /><br /><br />
+
+
             {/* SUBMIT: */}
             <input
                 type='submit'
                 value="Save Changes"
             />
 
+<br /><br />
 
 
     </form>

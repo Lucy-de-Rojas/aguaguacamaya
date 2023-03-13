@@ -4,7 +4,20 @@ import { mysqlConnect } from 'utils/connectDB';
 
 
 
+
+
+
 export default async function handler(req, res) {
+
+
+    let data = req.body;
+
+    console.log('data arriving at the back from EDIT:>>>>> ', data)
+
+
+
+
+
 
 
     // connect to DB:
@@ -17,7 +30,9 @@ export default async function handler(req, res) {
 
 
     // 🟥
-    const query = 'UPDATE';
+    const query = `UPDATE stock SET volume='${data.volume}', name = '${data.name}', sparkling = '${data.sparkling}', quantity = '${data.quantity}', price = '${data.price}', date = '${data.date}', note = '${data.note}'  WHERE id = ${data.id}`;
+
+
     const [results] = await connection.execute(query, values);
 
 
@@ -25,7 +40,7 @@ export default async function handler(req, res) {
 
 
 
-    res.json(results);
+    // res.json(results);
 
 
 
