@@ -19,7 +19,7 @@ export default function EditDetailsComp({id}) {
     // hide the form:
     function hideForm() {
         let target = document.querySelector('#editDetailsComp');
-        target.style.transform = 'translateX(150%)';
+        target.style.left = '-1500px';
     }
 
 
@@ -261,13 +261,7 @@ export default function EditDetailsComp({id}) {
 
 
 {/* cancelling button NO SAVING: */}
-<form onSubmit={()=>{
-    hideForm();
-}}>
-    <input type='submit' value='Cancel'/>
-
-</form>
-
+<button onClick={hideForm}>Cancel</button>
 
 
     </div>);

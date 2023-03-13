@@ -16,7 +16,7 @@ export default function AddProductComp() {
     function hideForm() {
 
         let form = document.querySelector('#addProductComp');
-        form.style.transform = 'translateX(150%)';
+        form.style.left = '-1500px';
 
     }
 

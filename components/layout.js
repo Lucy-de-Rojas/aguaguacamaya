@@ -24,6 +24,8 @@ export default function Layout({children, header, id, idSalesCorner}) {
     return (<div className={styles.wrapper}>
 
 <AddProductComp />
+<EditDetailsComp id={id}/>
+<AddToSalesCorner id={idSalesCorner} />
 
 
 
@@ -38,8 +40,6 @@ export default function Layout({children, header, id, idSalesCorner}) {
 {children}
 
 
-{/* <EditDetailsComp id={id}/> */}
-{/* <AddToSalesCorner id={idSalesCorner} /> */}
 
 
     </div>);

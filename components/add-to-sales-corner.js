@@ -16,11 +16,11 @@ export default function AddToSalesCorner({id}) {
     function hideComponent() {
         let itemToSalesCorner = document.querySelector('#addItemToSalesCorner');
 
-        itemToSalesCorner.style.transform = 'translateX(150%)';
-        itemToSalesCorner.style.top = '400px';
-        itemToSalesCorner.style.bottom = '200px';
-        itemToSalesCorner.style.left = '200px';
-        itemToSalesCorner.style.right = '200px';
+        itemToSalesCorner.style.left = '-1500px';
+        // itemToSalesCorner.style.top = '400px';
+        // itemToSalesCorner.style.bottom = '200px';
+        // itemToSalesCorner.style.left = '200px';
+        // itemToSalesCorner.style.right = '200px';
     }
 
 
@@ -59,17 +59,17 @@ export default function AddToSalesCorner({id}) {
 
         let date = new Date().toISOString().slice(0, 19).replace('T', ' ');
 
-
+    // data for the back end:
         let data = {
+            stockQuantityNew: dataById.quantity - quantity,
+            quantitySalesCorner: quantity,
             date: date,
             price: price,
-            quantity: quantity,
             id: dataById.id,
             name: dataById.name,
             volume: dataById.volume,
             note:dataById.note,
             sparkling: dataById.sparkling,
-            quantityStockUpdated: dataById.quantity - quantity,
         };
 
         console.log('data to go to /api:>>>> ', data);
@@ -179,9 +179,8 @@ export default function AddToSalesCorner({id}) {
 
 
 {/* cancelling: */}
-<form onSubmit={hideComponent}>
-<input type='submit' value="Cancel" />
-</form>
+<button onClick={hideComponent}>Cancel</button>
+
 
 
         </div>)

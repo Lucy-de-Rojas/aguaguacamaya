@@ -29,7 +29,7 @@ export default async function handler(req, res) {
 
 // copy data to sales corner table   🟥✔
 
-const queryAddToSalesCorner = `INSERT into sales_corner (id, name, date, quantity, volume, note, sparkling, price) VALUES ('${data.id}', '${data.name}', '${data.date}', '${data.quantity}', '${data.volume}', '${data.note}', '${data.sparkling}', '${data.price}')`;
+const queryAddToSalesCorner = `INSERT into sales_corner (id, name, date, quantity, volume, note, sparkling, price) VALUES ('${data.id}', '${data.name}', '${data.date}', '${data.quantitySalesCorner}', '${data.volume}', '${data.note}', '${data.sparkling}', '${data.price}')`;
 
 const [results] = await connection.execute(queryAddToSalesCorner, values);
 
@@ -43,8 +43,7 @@ const [results] = await connection.execute(queryAddToSalesCorner, values);
 
 
 // update stock with new lower quantity  🟥✔
-
-const queryUpdateStock = `UPDATE stock set quantity ='${data.quantity}' WHERE id = '${data.id}'`;
+const queryUpdateStock = `UPDATE stock set quantity ='${data.stockQuantityNew}' WHERE id = '${data.id}'`;
 
 const [resultsUpdate] = await connection.execute(queryUpdateStock, values);
 

@@ -25,7 +25,7 @@ export default function Stock() {
 
     // show the form:
     let target = document.querySelector('#editDetailsComp');
-    target.style.transform = 'translateX(0%)';
+    target.style.left = '5%';
 
 // set the id:
     setEditDetailsID(event.target.id);
@@ -50,7 +50,7 @@ function addItemToSalesCorner(event) {
 
     // slide out the component:
     let itemToSalesCorner = document.querySelector('#addItemToSalesCorner');
-    itemToSalesCorner.style.transform = 'translateX(0%)';
+    itemToSalesCorner.style.left = '5%';
     itemToSalesCorner.style.top = '40px';
     itemToSalesCorner.style.bottom = '40px';
     itemToSalesCorner.style.left = '20px';
