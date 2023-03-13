@@ -1,10 +1,10 @@
 .addItemToSalesCorner {
     background-color: rgb(240, 46, 46);
-    position: absolute;
+    /* position: absolute;
     top: 400px;
     left: 200px;
     right: 200px;
-    bottom: 200px;
+    bottom: 200px; */
 
     text-align: center;
     transform: translateX(150%);

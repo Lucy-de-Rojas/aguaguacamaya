@@ -1,0 +1,29 @@
+.wrapper {
+    background-color: red;
+    padding: 30px;
+    /* position: relative; */
+
+    width: 100%;
+
+
+
+
+}
+
+
+.absol {
+    background-color: green;
+
+
+    position: absolute;
+
+    top: 50px;
+    bottom: 50px;
+
+    right: 10px;
+    left: 10px;
+
+
+
+
+}

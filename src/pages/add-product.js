@@ -1,6 +1,6 @@
 
 
-import styles from '../src/styles/addProductComp.module.css';
+import styles from '../styles/addProductComp.module.css';
 
 
 
@@ -16,7 +16,7 @@ export default function AddProductComp() {
     function hideForm() {
 
         let form = document.querySelector('#addProductComp');
-        form.style.left = '-1500px';
+        form.style.transform = 'translateX(150%)';
 
     }
 
@@ -214,8 +214,7 @@ export default function AddProductComp() {
         </form>
 
 
-{/* cancel add product: */}
-<button onClick={hideForm}>Cancel Adding Product</button>
+        <button onClick={hideForm}>Cancel Adding Product</button>
 
     </div>);
 

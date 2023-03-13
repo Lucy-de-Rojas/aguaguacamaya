@@ -2,9 +2,8 @@ import {useState, useEffect} from 'react';
 
 
 import Layout from 'components/layout';
-// import { editDetails } from 'utils/editDetails';
-
-
+import styles from '../styles/stock.module.css';
+import AddProductComp from 'components/addProductComp';
 
 
 
@@ -96,7 +95,17 @@ function addItemToSalesCorner(event) {
 
 
 
-    return (<Layout header='Stock' id={editDetailsID} idSalesCorner={addItemToSalesCornerID}>
+    return (<Layout
+                        header='Stock'
+                        id={editDetailsID}
+                        idSalesCorner={addItemToSalesCornerID}
+                        >
+
+
+
+
+
+
 
 
 <hr />
