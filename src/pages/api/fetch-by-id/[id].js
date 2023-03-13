@@ -31,17 +31,19 @@ export default async function handler(req, res) {
 
 
 
-    // 🟥
+    // 🟥✔
     const query = `select * from stock where id=${id}`;
 
+if(id) {
 
     const [results] = await connection.execute(query, values);
-
     console.log('results by ID: >>>>>', results)
-
-
-
     res.json(results);
+}
+
+
+
+
 
 
 
